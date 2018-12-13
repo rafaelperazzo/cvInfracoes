@@ -1,0 +1,15 @@
+<routes>
+    <vType accel="0.1" decel="5.0" id="Car" minGap="2.0" maxSpeed="3.0" sigma="0.5" speedFactor="0.3" speedDev="0.1" guiShape="passenger" />
+
+    <vType accel="0.1" decel="5.0" id="Bus" minGap="3.0" maxSpeed="2.0" sigma="0.5" speedFactor="0.2" speedDev="0.1" guiShape="bus" />
+
+    <vType accel="0.1" decel="5.0" id="Motor" minGap="2.0" maxSpeed="2.0" sigma="0.5" speedFactor="0.2" speedDev="0.1" guiShape="motorcycle" />
+
+    <vType accel="0.1" decel="5.0" id="Truck" minGap="3.5" maxSpeed="2.0" sigma="0.5" speedFactor="0.2" speedDev="0.1" guiShape="truck" />
+
+
+    <flow id="fluxo1" color="1,1,0"  begin="0" end= "5000" departLane="random" departSpeed="random" probability="0.03" type="Car">
+        <route edges="R1 R2"/>
+    </flow>
+
+</routes>

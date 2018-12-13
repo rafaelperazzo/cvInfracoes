@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Qui 13 Dez 2018 11:30:42 -03 by Netedit Version 0.30.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/home/rafael/MEGA/software/infracoes/Sumo/final.subindo.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/home/rafael/MEGA/software/infracoes/Sumo/final.subindo.net.xml"/>
+    </output>
+
+    <processing>
+        <no-internal-links value="true"/>
+        <no-turnarounds value="true"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+        <junctions.corner-detail value="0"/>
+        <rectangular-lane-cut value="false"/>
+    </processing>
+
+</configuration>
+-->
+
+<net version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,0.00,50.00" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!"/>
+
+    <edge id="SUBINDO" from="n2" to="n1" priority="1">
+        <lane id="SUBINDO_0" index="0" speed="13.89" length="50.00" shape="1.65,0.00 1.65,50.00"/>
+    </edge>
+
+    <junction id="n1" type="dead_end" x="0.00" y="50.00" incLanes="SUBINDO_0" intLanes="" shape="3.25,50.00 0.05,50.00"/>
+    <junction id="n2" type="dead_end" x="0.00" y="0.00" incLanes="" intLanes="" shape="0.05,0.00 3.25,0.00"/>
+
+</net>

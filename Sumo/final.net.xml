@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 28/09/2018 16:40:03 by Netedit Version 0.32.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="C:\Documents\Exemplos%20Sumo\Exemplo1.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="C:\Documents\Exemplos%20Sumo\Exemplo1.net.xml"/>
+    </output>
+
+    <processing>
+        <no-turnarounds value="true"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+        <junctions.corner-detail value="0"/>
+        <rectangular-lane-cut value="false"/>
+        <walkingareas value="false"/>
+    </processing>
+
+</configuration>
+-->
+
+<net version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,0.00,50.00" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!"/>
+
+    <edge id=":N2_0" function="internal">
+        <lane id=":N2_0_0" index="0" speed="13.89" length="0.10" shape="0.00,25.00 0.00,25.00"/>
+    </edge>
+
+    <edge id="R1" from="N1" to="N2" priority="1" spreadType="center">
+        <lane id="R1_0" index="0" speed="13.89" length="25.00" shape="0.00,50.00 0.00,25.00"/>
+    </edge>
+    <edge id="R2" from="N2" to="N3" priority="1" spreadType="center">
+        <lane id="R2_0" index="0" speed="13.89" length="25.00" shape="0.00,25.00 0.00,0.00"/>
+    </edge>
+
+    <junction id="N1" type="dead_end" x="0.00" y="50.00" incLanes="" intLanes="" shape="1.60,50.00 -1.60,50.00"/>
+    <junction id="N2" type="priority" x="0.00" y="25.00" incLanes="R1_0" intLanes=":N2_0_0" shape="-1.60,25.00 1.60,25.00 -1.60,25.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="N3" type="dead_end" x="0.00" y="0.00" incLanes="R2_0" intLanes="" shape="-1.60,0.00 1.60,0.00"/>
+
+    <connection from="R1" to="R2" fromLane="0" toLane="0" via=":N2_0_0" dir="s" state="M"/>
+
+    <connection from=":N2_0" to="R2" fromLane="0" toLane="0" dir="s" state="M"/>
+
+</net>
