@@ -24,6 +24,7 @@ class Vehicle(object):
         self.frames_since_seen = 0
         self.counted = False
         self.type = 4 #4 - carro; 2 - Moto
+        self.direcao = 2 #0 descenco e 1 subindo
 
     @property
     def last_position(self):
@@ -41,6 +42,8 @@ class Vehicle(object):
                 , False, car_colour, 1)
         cv2.putText(output_image, str(self.id), self.positions[-1], cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 255), 1)
 
+    def setDirecao(self,sentido):
+        self.direcao = sentido
 
 # ============================================================================
 
@@ -112,8 +115,10 @@ class VehicleCounter(object):
                 #print(vehicle.id, vehicle.last_position[1],centroid[1],centroid[1]-vehicle.last_position[1])
                 if (centroid[1]-vehicle.last_position[1]>=0): #ALTERADO: Mudei de 0 para -10
                     self.log.info("Veiculo %i esta DESCENDO - posicao:(%i)" % (vehicle.id,centroid[1]))
+                    vehicle.setDirecao(0)
                 elif (centroid[1]-vehicle.last_position[1]<0): #ALTERADO : Mudei de 0 para -10
                     self.log.info("Veiculo %i esta SUBINDO - posicao:(%i)" % (vehicle.id,centroid[1]))
+                    vehicle.setDirecao(1)
                 self.log.debug("Veiculo #%d encontrado na posicao (%d). distancia=(%0.2f). Posicao anterior: (%d). Diferenca: (%d). ", vehicle.id, centroid[1], vector[0],vehicle.last_position[1],centroid[1]-vehicle.last_position[1])
                 vehicle.add_position(centroid)
                 #self.log.info("Added match (%d, %d) to vehicle #%d. vector=(%0.2f,%0.2f)", centroid[0], centroid[1], vehicle.id, vector[0], vector[1])
@@ -155,7 +160,7 @@ class VehicleCounter(object):
 
         # Count any uncounted vehicles that are past the divider
         for vehicle in self.vehicles:
-            if not vehicle.counted and (vehicle.last_position[1] > self.divider):
+            if not vehicle.counted and (vehicle.last_position[1] > self.divider) and (vehicle.direcao==0):
                 self.vehicle_count += 1
                 vehicle.counted = True
                 #RAFAEL - CLASSIFICAÇÃO

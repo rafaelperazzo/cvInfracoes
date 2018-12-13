@@ -1,6 +1,6 @@
 <routes>
     <vType accel="0.001" decel="0.0" id="Car" minGap="2.0" maxSpeed="0.5" sigma="0.5" speedFactor="0.1" speedDev="0.1" guiShape="passenger" />
-    <flow id="fluxo1" color="1,1,0"  begin="0" end= "5000" departLane="random" departSpeed="random" probability="1" type="Car">
+    <flow id="fluxo1" color="1,1,0"  begin="0" end= "5000" departLane="random" departSpeed="random" number="50" type="Car">
         <route edges="R1 R2"/>
     </flow>
 
